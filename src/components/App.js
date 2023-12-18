@@ -7,7 +7,7 @@ const App = () => {
 
   Axios.get("https://dummyjson.com/products")
     .then((res) => setApiFetch(res.data))
-    .catch((err) => console.log(err));
+    .catch((err) => setApiFetch(err));
 
   return (
     <div>
