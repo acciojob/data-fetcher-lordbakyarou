@@ -1,13 +1,23 @@
-
-import React from "react";
-import './../styles/App.css';
+import React, { useState } from "react";
+import Axios from "axios";
+import "./../styles/App.css";
 
 const App = () => {
+  const [apiFetch, setApiFetch] = useState([]);
+
+  Axios.get("https://dummyjson.com/products")
+    .then((res) => setApiFetch(res.data))
+    .catch((err) => console.log(err));
+
   return (
     <div>
-        {/* Do not remove the main div */}
+      <h1>Data Fetched from API</h1>
+      {console.log(apiFetch)}
+      {(apiFetch && <pre>{JSON.stringify(apiFetch, null, 2)}</pre>) || (
+        <pre>Loading...</pre>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
