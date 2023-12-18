@@ -7,14 +7,14 @@ const App = () => {
 
   Axios.get("https://dummyjson.com/products")
     .then((res) => setApiFetch(res.data))
-    .catch((err) => setApiFetch("An error occurred:"));
+    .catch((err) => console.log(err));
 
   return (
     <div>
       <h1>Data Fetched from API</h1>
       {console.log(apiFetch)}
       {(apiFetch && <pre>{JSON.stringify(apiFetch, null, 2)}</pre>) || (
-        <pre>Loading...</pre>
+        <pre>An error occurred:</pre>
       )}
     </div>
   );
