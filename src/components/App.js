@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./../styles/App.css";
 
 const App = () => {
   const [apiFetch, setApiFetch] = useState([]);
 
-  Axios.get("https://dummyjson.com/products")
-    .then((res) => setApiFetch(res.data))
-    .catch((err) => console.log(err));
+  useEffect(() => {
+    Axios.get("https://dummyjson.com/products")
+      .then((res) => setApiFetch(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div>
