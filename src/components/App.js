@@ -13,9 +13,8 @@ const App = () => {
     <div>
       <h1>Data Fetched from API</h1>
       {console.log(apiFetch)}
-      {(apiFetch && <pre>{JSON.stringify(apiFetch, null, 2)}</pre>) || (
-        <pre>An error occurred:</pre>
-      )}
+      {(apiFetch && <pre>{JSON.stringify(apiFetch, null, 2)}</pre>) ||
+        "An error occurred:"}
     </div>
   );
 };
